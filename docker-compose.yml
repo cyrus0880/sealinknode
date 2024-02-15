@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  main:
+    tty: true
+    image: cyrus0880/sealinknode:1.3.1
+    restart: unless-stopped
+    ports:
+      - 15003:15003
+      - 15001:15001
+    networks:
+      - appnet
+    volumes:
+      - ./data:/root/.blockcore
+    environment:
+      - TZ=Asia/Hong_Kong
+
+networks:
+  appnet:
+    external: true
